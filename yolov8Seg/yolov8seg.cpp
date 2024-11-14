@@ -374,9 +374,6 @@ yolov8Seg::yolov8Seg(QWidget *parent)
     ui->comboBox->addItem(QString("%1 x %2").arg(640).arg(640));
     ui->comboBox->addItem(QString("%1 x %2").arg(800).arg(800));
 
-    this->prob_threshold = ui->spinbox_conf_threshold->value();
-    this->nms_threshold = ui->spinbox_iou_threshold->value();
-
     // 分割
     // this->readClassesFile(":/new/prefix1/resources/yolov5_classes.txt");
     this->blob_pool_allocator.set_size_compare_ratio(0.f);
@@ -534,6 +531,13 @@ void yolov8Seg::DetectImage(int height, int width) {
     int img_h = this->Image.rows;
 
     qDebug() << "Input Image shape:" << img_w << ", " << img_h;
+
+    // threshold
+    this->prob_threshold = ui->spinbox_conf_threshold->value();
+    this->nms_threshold = ui->spinbox_iou_threshold->value();
+
+    qDebug() << "prob_threshold: " << ui->spinbox_conf_threshold->value();
+    qDebug() << "nms_threshold: " << ui->spinbox_iou_threshold->value();
 
     // pad to multiple of 32
     int w = img_w;
