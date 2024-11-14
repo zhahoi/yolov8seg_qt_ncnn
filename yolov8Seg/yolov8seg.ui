@@ -71,7 +71,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>视频</string>
+     <string>视频检测</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_time">
@@ -200,7 +200,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>检测</string>
+     <string>图像检测</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_image">
